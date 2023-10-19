@@ -11,12 +11,15 @@ import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
-
-export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import Logo from "../asset/logo.png";
+import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
+export const logo = Logo;
 
 export const categories = [
-  { name: "New", icon: <HomeIcon /> },
-
+  { name: "Home", icon: <HomeIcon /> },
+  { name: "Sky News", icon: <NewspaperIcon /> },
+  { name: "Football", icon: <SportsSoccerIcon /> },
   { name: "Music", icon: <MusicNoteIcon /> },
   { name: "Education", icon: <SchoolIcon /> },
   { name: "Podcast", icon: <GraphicEqIcon /> },
@@ -33,6 +36,6 @@ export const categories = [
 export const demoThumbnailUrl = "";
 export const demoChannelUrl = "";
 export const demoVideoUrl = "";
-export const demoChannelTitle = "hello";
-export const demoVideoTitle = "";
+export const demoChannelTitle = "Api is not working properly";
+export const demoVideoTitle = "Api is not working properly";
 export const demoProfilePicture = "";
