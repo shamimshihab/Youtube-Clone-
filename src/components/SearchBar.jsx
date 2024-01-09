@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useThemeContext } from "./ThemeProviderWrapper";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-
+  const { currentTheme, toggleTheme } = useThemeContext();
   const onhandleSubmit = (e) => {
     e.preventDefault();
 
@@ -37,7 +38,11 @@ const SearchBar = () => {
       />
       <IconButton
         type="submit"
-        sx={{ p: "10px", color: "red" }}
+        sx={{
+          p: "10px",
+
+          // color: "red"
+        }}
         aria-label="search"
       >
         <SearchIcon />

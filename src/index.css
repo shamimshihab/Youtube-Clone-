@@ -7,7 +7,7 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  /* color: black; */
 }
 
 ::-webkit-scrollbar {
@@ -21,9 +21,9 @@ a {
   height: 200px;
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background-color: transparent;
-}
+} */
 
 .category-btn:hover {
   background-color: #fc1503 !important;
@@ -52,7 +52,7 @@ a {
   align-items: center;
   justify-content: start;
   cursor: pointer;
-  background: transparent;
+  /* background: transparent; */
   outline: none;
   border: none;
 

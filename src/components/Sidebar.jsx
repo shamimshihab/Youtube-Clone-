@@ -18,13 +18,13 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => (
         onClick={() => setSelectedCategory(category.name)}
         style={{
           background: category.name === selectedCategory && "#FC1503",
-          color: "white",
+          // color: "white",
         }}
         key={category.name}
       >
         <span
           style={{
-            color: category.name === selectedCategory ? "white" : "red",
+            color: category.name === selectedCategory ? "blue" : "red",
             marginRight: "15px",
           }}
         >
