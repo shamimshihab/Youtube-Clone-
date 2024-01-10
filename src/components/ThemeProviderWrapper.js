@@ -20,7 +20,7 @@ export function useThemeContext() {
 }
 
 export function ThemeProviderWrapper({ children }) {
-  const [currentTheme, setCurrentTheme] = useState(lightTheme);
+  const [currentTheme, setCurrentTheme] = useState(darkTheme);
 
   const toggleTheme = () => {
     setCurrentTheme((prevTheme) =>
