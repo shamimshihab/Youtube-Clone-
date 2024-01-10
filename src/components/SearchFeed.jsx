@@ -28,12 +28,16 @@ const SearchFeed = () => {
   useEffect(() => {}, [selectedCategory]);
 
   return (
-    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+    <Stack
+      sx={{
+        flexDirection: { sx: "column", md: "row" },
+      }}
+    >
       <Box
         sx={{
           height: { sx: "auto", md: "92vh" },
-          borderRight: "1px solid #3d3d3d",
-          px: { sx: 0, md: 2 },
+          // borderRight: "1px solid #3d3d3d",
+          // px: { sx: 0, md: 2 },
         }}
       >
         <Sidebar
@@ -41,19 +45,19 @@ const SearchFeed = () => {
           setSelectedCategory={setSelectedCategory}
         />
 
-        <Typography
+        {/* <Typography
           className="copyright"
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
           Copyright © 2023 Shamim
-        </Typography>
+        </Typography> */}
       </Box>
       <Box p={2} minHeight="95vh">
         <Typography
           variant="h4"
           fontWeight={900}
-          color="white"
+          // color="white"
           mb={3}
           ml={{ sm: "100px" }}
         >

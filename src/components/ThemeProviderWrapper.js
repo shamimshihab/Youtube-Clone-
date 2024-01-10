@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const ThemeContext = createContext();
@@ -28,8 +28,32 @@ export function ThemeProviderWrapper({ children }) {
     );
   };
 
+  //   const handleOpen = () => {
+  //     setOpen(!open);
+  //   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+    // handleOpen();
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+    // handleClose();
+  };
+
   return (
-    <ThemeContext.Provider value={{ currentTheme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{
+        currentTheme,
+        toggleTheme,
+        open,
+        handleDrawerOpen,
+        handleDrawerClose,
+      }}
+    >
       <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
