@@ -29,10 +29,6 @@ const SearchBar = () => {
       component="form"
       onSubmit={onhandleSubmit}
       sx={{
-        // borderRadius: 20,
-        // border: "1px solid #e3e3e3",
-        // pl: 2,
-        // boxShadow: "none",
         mr: { sm: 5 },
       }}
     >
@@ -41,11 +37,9 @@ const SearchBar = () => {
         placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        sx={
-          {
-            // minWidthwidth: "40dvw",
-          }
-        }
+        sx={{
+          minWidth: "30rem",
+        }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

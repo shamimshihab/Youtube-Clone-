@@ -6,7 +6,7 @@ import { ChannelCard, Loader, VideoCard } from "./";
 const Videos = ({ videos, direction }) => {
   if (!videos?.length) return <Loader />;
   {
-    console.log("video", videos);
+    // console.log("video", videos);
   }
   return (
     <Stack

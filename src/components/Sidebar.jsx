@@ -36,7 +36,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
     handleDrawerClose,
   } = useThemeContext();
 
-  const drawerWidth = 220;
+  const drawerWidth = 240;
 
   const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -64,9 +64,12 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   }));
-
+  // interface AppBarProps extends MuiAppBarProps {
+  //   open?: boolean;
+  // }
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
   })(({ theme, open }) => ({
@@ -121,7 +124,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
 
                 flexDirection: open ? "row" : "column",
 
-                alignItems: open ? "center" : "flex-start", // Setting flexDirection based on 'open' value
+                alignItems: open ? "center" : "flex-start",
               }}
             >
               <ListItemIcon
@@ -138,8 +141,6 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
                 sx={{
                   opacity: open ? 1 : 1,
                   ml: open ? 0 : 0,
-
-                  // Adjust margin-left when in column direction
                 }}
               />
             </ListItemButton>
