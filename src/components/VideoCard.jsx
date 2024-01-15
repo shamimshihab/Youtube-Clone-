@@ -38,7 +38,7 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: "358px", md: "320px" },
+        width: { xs: "100%", sm: "350px", md: "320px" },
         boxShadow: "none",
         borderRadius: 0,
       }}
@@ -61,11 +61,7 @@ const VideoCard = ({
       >
         <div onClick={handleNavigation1}>
           {/* <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}> */}
-          <Typography
-            variant="subtitle1"
-            fontWeight="bold"
-            // color="#FFF"
-          >
+          <Typography variant="subtitle1" fontWeight="bold">
             {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
           </Typography>
           {/* </Link> */}

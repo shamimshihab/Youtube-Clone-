@@ -7,6 +7,7 @@ import {
   SearchFeed,
   Navbar,
   Feed,
+  Sidebar,
 } from "./components";
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
         }
       >
         <Navbar />
+
         <Routes>
           <Route exact path="/" element={<Feed />} />
           <Route path="/video/:id" element={<VideoDetail />} />

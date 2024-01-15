@@ -1,7 +1,7 @@
 import React from "react";
 
 import { categories } from "../utils/constants";
-import { Stack, Grid, Button } from "@mui/material";
+import { Stack, Grid, Button, Hidden } from "@mui/material";
 
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -105,77 +105,68 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
   }));
   return (
     <Stack
-      direction="row"
+      direction={{ xs: "column", md: "row" }}
       sx={{
         overflowY: "auto",
         height: { sx: "auto", md: "95%" },
-        flexDirection: { md: "column" },
       }}
     >
-      <List style={{}}>
-        {categories.map((category, index) => (
-          <ListItem key={category.name} disablePadding>
-            <ListItemButton
-              onClick={() => setSelectedCategory(category.name)}
-              sx={{
-                // minHeight: 48,
-                display: "flex",
-                justifyContent: open ? "initial" : "flex-start",
-
-                flexDirection: open ? "row" : "column",
-
-                alignItems: open ? "center" : "flex-start",
-              }}
-            >
-              <ListItemIcon
+      <Hidden mdDown>
+        <List style={{}}>
+          {categories.map((category, index) => (
+            <ListItem key={category.name} disablePadding>
+              <ListItemButton
+                onClick={() => setSelectedCategory(category.name)}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 4 : "auto",
-                  justifyContent: "center",
+                  display: "flex",
+                  justifyContent: open ? "initial" : "flex-start",
+
+                  flexDirection: open ? "row" : "column",
+
+                  alignItems: open ? "center" : "flex-start",
                 }}
               >
-                {category.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={category.name}
-                sx={{
-                  opacity: open ? 1 : 1,
-                  ml: open ? 0 : 0,
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 4 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {category.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={category.name}
+                  sx={{
+                    opacity: open ? 1 : 1,
+                    ml: open ? 0 : 0,
+                  }}
+                />
+              </ListItemButton>
+              <Divider />
+            </ListItem>
+          ))}
+        </List>
+      </Hidden>
+
+      <Hidden mdUp>
+        <div style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
+          <Stack direction="row" spacing={2} sx={{ width: "fit-content" }}>
+            {categories.map((category) => (
+              <Button
+                key={category.name}
+                style={{
+                  margin: "2px",
                 }}
-              />
-            </ListItemButton>
-            <Divider />
-          </ListItem>
-        ))}
-      </List>
-      {/* </Drawer> */}
-      {/* {categories.map((category) => (
-        <button
-          className="category-btn"
-          onClick={() => setSelectedCategory(category.name)}
-          style={{
-            background: category.name === selectedCategory && "#FC1503",
-            // color: "white",
-          }}
-          key={category.name}
-        >
-          <span
-            style={{
-              color: category.name === selectedCategory ? "blue" : "red",
-              marginRight: "15px",
-            }}
-          >
-            {category.icon}
-          </span>
-          <span
-            style={{
-              opacity: category.name === selectedCategory ? "1" : "0.8",
-            }}
-          >
-            {category.name}
-          </span>
-        </button>
-      ))} */}
+                onClick={() => setSelectedCategory(category.name)}
+              >
+                <span>{category.icon}</span>
+                <Typography>{category.name}</Typography>
+              </Button>
+            ))}
+          </Stack>
+        </div>
+      </Hidden>
     </Stack>
   );
 };

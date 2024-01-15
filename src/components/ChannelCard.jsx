@@ -1,31 +1,38 @@
 import React from "react";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { demoProfilePicture } from "../utils/constants";
 
-const ChannelCard = ({ channelDetail, marginTop }) => (
-  <Box
-    sx={{
-      boxShadow: "none",
-      borderRadius: "20px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: { xs: "356px", md: "320px" },
-      height: "326px",
-      margin: "auto",
-      marginTop,
-    }}
-  >
-    <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+const ChannelCard = ({ channelDetail, marginTop }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/channel/${channelDetail?.id?.channelId}`);
+  };
+
+  return (
+    <Box
+      sx={{
+        boxShadow: "none",
+        borderRadius: "20px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: { xs: "356px", md: "320px" },
+        height: "326px",
+        margin: "auto",
+        marginTop,
+        cursor: "pointer", // Add cursor style for indicating it's clickable
+      }}
+      onClick={handleNavigate}
+    >
       <CardContent
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           textAlign: "center",
-          // color: "#fff",
         }}
       >
         <CardMedia
@@ -52,8 +59,6 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
             sx={{
               fontSize: "15px",
               fontWeight: 500,
-
-              // color: "gray"
             }}
           >
             {parseInt(
@@ -63,8 +68,8 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
           </Typography>
         )}
       </CardContent>
-    </Link>
-  </Box>
-);
+    </Box>
+  );
+};
 
 export default ChannelCard;

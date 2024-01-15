@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Box, Stack, Typography, Button } from "@mui/material";
+import { Box, Stack, Typography, Button, Hidden } from "@mui/material";
 import { logo } from "../utils/constants";
 import { SearchBar } from "./";
 import { useThemeContext } from "./ThemeProviderWrapper";
@@ -61,17 +61,20 @@ const Navbar = () => {
           marginRight: 2,
         }}
       >
-        <IconButton
-          color="inherit"
-          onClick={open ? handleDrawerClose : handleDrawerOpen}
-          edge="start"
-          sx={{
-            marginRight: 4,
-          }}
-        >
-          {" "}
-          <MenuIcon />
-        </IconButton>
+        {" "}
+        <Hidden mdDown>
+          <IconButton
+            color="inherit"
+            onClick={open ? handleDrawerClose : handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 4,
+            }}
+          >
+            {" "}
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
         <div
           onClick={handleNavigation}
           to="/"
@@ -92,10 +95,10 @@ const Navbar = () => {
           width: "100%",
         }}
       >
-        <div
-          style={{
+        <Stack
+          sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", md: "row" },
           }}
         >
           <SearchBar />
@@ -114,7 +117,7 @@ const Navbar = () => {
               )}
             </IconButton>
           </Stack>
-        </div>
+        </Stack>
       </div>
     </Stack>
   );
